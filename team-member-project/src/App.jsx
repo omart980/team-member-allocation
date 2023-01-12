@@ -109,7 +109,7 @@ useEffect(() => { //whe state changes, updating the array in storage
       setTeam(event.target.value); // this is to change the state and then rerendered
   }
   
-  function handleCardClick(event){ //method to add/remove a card from selected Team; toggles shadow effects upon selection below
+  function handleEmployeeCardClick(event){ //method to add/remove a card from selected Team; toggles shadow effects upon selection below
       const transformedArray = employees.map((employee) => employee.id === parseInt(event.currentTarget.id)
                               ?(employee.teamName) === selectedTeam
                               ?{...employee, teamName:''}:{...employee, teamName: selectedTeam}:employee); 
@@ -125,7 +125,7 @@ useEffect(() => { //whe state changes, updating the array in storage
         <Route path="/" /**each component will have its own root component, search this (1:14:59) */
               element={<Employees employees={employees}
                   selectedTeam={selectedTeam}
-                  handleCardClick={handleCardClick}
+                  handleEmployeeCardClick={handleEmployeeCardClick}
                   handleTeamSelectionChange={handleTeamSelectionChange} />} >
         </Route> {/*after /, this path will render this info: header, GroupedTeamMebers, and Footer */}
         <Route path='/GroupedTeamMembers' element={<GroupedTeamMembers employees={employees} 

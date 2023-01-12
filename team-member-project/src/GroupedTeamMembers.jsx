@@ -33,10 +33,10 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam }) => {
     // we use map func. to traverse the items in the grouped employees array
     // if team name matches the ID after click, collapse will toggle with correct info presented
     function handleTeamClick(event){
-        var transformedroupData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id 
+        var transformedGroupData = groupedEmployees.map((groupedData) => groupedData.team === event.currentTarget.id 
                                                                 ?{...groupedData, collapsed:!groupedData.collapsed}
                                                                 :groupedData);
-        setGroupedData(transformedroupData);
+        setGroupedData(transformedGroupData);
         setTeam(event.currentTarget.id);
     }
 
@@ -65,8 +65,9 @@ const GroupedTeamMembers = ({ employees, selectedTeam, setTeam }) => {
                                     })
                                 }
                             </div>
+                            <hr />
                         </div>
-                    )
+                    );
                 })
             }
         </main>
