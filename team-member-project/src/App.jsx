@@ -6,8 +6,9 @@ import Footer from './Footer'; // reference from jsx
 import Employees from './Employees';
 import GroupedTeamMembers from './GroupedTeamMembers';
 import { useState, useEffect } from "react"; // react needs to track [] of employ.
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // components
+import Nav from './Nav';
+import NotFound from './NotFound';
 
 function App() {  
   const [selectedTeam, setTeam ] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || "TeamB");
@@ -27,7 +28,7 @@ function App() {
     },
     {
       id: 3,
-      fullName: "Gail Shepherd",
+      fullName: "Gail Sheppard",
       designation: "Java Developer",
       gender: "female",
       teamName: "TeamA"
@@ -117,17 +118,21 @@ useEffect(() => { //whe state changes, updating the array in storage
 
   return (
     <Router> {/**prop drilling or props*/}
+      <Nav />
       <Header selectedTeam={selectedTeam}
               teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length} />
       <Routes>
-        <Route path="/" 
+        <Route path="/" /**each component will have its own root component, search this (1:14:59) */
               element={<Employees employees={employees}
                   selectedTeam={selectedTeam}
                   handleCardClick={handleCardClick}
                   handleTeamSelectionChange={handleTeamSelectionChange} />} >
-        </Route>
-        <Route path='/GroupedTeamMembers' element = {<GroupedTeamMembers />} >
-
+        </Route> {/*after /, this path will render this info: header, GroupedTeamMebers, and Footer */}
+        <Route path='/GroupedTeamMembers' element={<GroupedTeamMembers employees={employees} 
+                                                                        selectedTeam={selectedTeam} 
+                                                                        setTeam={setTeam} />} >
+        </Route> {/**Wild card; here will catch errors for invalid paths */}
+        <Route path="*" element={<NotFound />}> {/**will set element to not found property */}
         </Route>
       </Routes>
       <Footer /> {/**check one by one when tryiing to figure out the error */}
