@@ -1,7 +1,7 @@
 
 # Team Member Allocation 👨‍💼👩‍💼
 
-![Team Members](/team-member-project/src/images/team_members.png)
+![Team Members](/team-member-project/src/images/team_members.png =300x300)
 
 ## Description
 This application will let you select and organize different team members into designated teams. 
