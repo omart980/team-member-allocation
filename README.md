@@ -1,7 +1,7 @@
 
 # Team Member Allocation 👨‍💼👩‍💼
 
-![App Screenshot](/Users/shu/Desktop/repos/team-member-allocation/team-member-project/src/images/team_members.png)
+![Team Members](/team-member-project/src/images/team_members.png)
 
 ## Description
 This application will let you select and organize different team members into designated teams. 
