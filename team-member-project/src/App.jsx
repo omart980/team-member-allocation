@@ -122,7 +122,7 @@ useEffect(() => { //whe state changes, updating the array in storage
       <Header selectedTeam={selectedTeam}
               teamMemberCount={employees.filter((employee) => employee.teamName === selectedTeam).length} />
       <Routes>
-        <Route path="/" /**each component will have its own root component, search this (1:14:59) */
+        <Route path="/team-member-allocation" /**each component will have its own root component, search this (1:14:59) */
               element={<Employees employees={employees}
                   selectedTeam={selectedTeam}
                   handleEmployeeCardClick={handleEmployeeCardClick}
